@@ -9,7 +9,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "name": "webpack-exercise",
-  "description": "",
+  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
