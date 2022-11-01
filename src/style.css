@@ -1,19 +1,19 @@
 body {
-display: flex;
-flex-direction: column;
-align-items: center;
-margin-top: 10vh;
-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  width: 100vw;
 }
 
 .pointer {
   cursor: pointer;
 }
+
 .title-cont {
   display: flex;
   align-items: center;
   width: 40vw;
-  /* margin: 5px; */
   padding: 10px;
   border: 1px solid grey;
 }
@@ -27,27 +27,25 @@ h3 {
   display: flex;
   align-items: center;
   width: 40vw;
-  /* margin: 5px; */
   padding: 10px;
   border: 1px solid grey;
 }
 
 .input-task {
-  border: 0 ;
+  border: 0;
   margin-right: auto;
   width: 38vw;
   height: 5vh;
-  border: 0;
 }
 
 .task-list {
   display: flex;
   align-items: center;
   width: 40vw;
-  /* margin: 5px; */
   padding: 10px;
   border: 1px solid grey;
 }
+
 .menuIcon {
   margin-left: auto;
 }
