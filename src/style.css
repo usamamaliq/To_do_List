@@ -55,23 +55,19 @@ h3 {
   height: 6.3vh;
 }
 
-.delete{
+.delete {
   display: none;
+  margin-left: auto;
 }
 
 .taska {
   border: 0;
   height: 4vh;
   width: 35vw;
-  
 }
 
 .taska:focus {
   outline: none;
-}
-
-.delete {
-  margin-left: auto;
 }
 
 .line-through {
