@@ -1,23 +1,14 @@
 import './style.css';
+import { displayTasks, refreshList, clearButton } from './modules/addRemoveEdit.js';
 
-const tasks = [
-  {
-    description: 'wash the dishes',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'complete the project',
-    completed: false,
-    index: 2,
-  },
-];
+window.onload = displayTasks();
+const refreshIcon = document.querySelector('.refreshIcon');
+const clearBtn = document.querySelector('.clearBtn');
 
-const taskContainer = document.querySelector('.tasks-cont');
-for (let i = 0; i < tasks.length; i += 1) {
-  taskContainer.innerHTML += `<div class="task-list">
-  <input class="pointer " type="checkbox" name="wash the dishes" id="${tasks[i].index}">
-  <label  for="${tasks[i].index}">${tasks[i].description}</label>
-  <i class="fa  fa-ellipsis-v menuIcon pointer"></i>
-</div>`;
-}
+refreshIcon.addEventListener('click', () => {
+  refreshList();
+});
+
+clearBtn.addEventListener('click', () => {
+  clearButton();
+});
