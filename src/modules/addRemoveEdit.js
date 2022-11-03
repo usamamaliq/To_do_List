@@ -1,3 +1,4 @@
+// local storage updates 
 if (localStorage.getItem('Task List') === null) {
     localStorage.setItem('Task List', JSON.stringify([]));
   }
@@ -8,6 +9,7 @@ if (localStorage.getItem('Task List') === null) {
     localStorage.setItem('Task List', JSON.stringify(taskList));
   }
   
+  // function to display tasks dynamically
   export const displayTasks = () => {
     const taskContainer = document.querySelector('.tasks-cont');
     taskContainer.innerHTML = '';
@@ -31,6 +33,7 @@ if (localStorage.getItem('Task List') === null) {
       }}
   };
   
+  //function to make use of checkbox
   const checkBox = (checkBoxID) => {
     let indexID= checkBoxID.getAttribute('id');
     let inputTask= document.querySelectorAll('.taska');
@@ -46,6 +49,7 @@ if (localStorage.getItem('Task List') === null) {
     updateLocalStorage();
   };
 
+  //function to edit task and display delete button
   const taskED = (EDId) => {
     EDId.style.display= 'none';
     let taskField= EDId.previousElementSibling;
@@ -58,6 +62,7 @@ if (localStorage.getItem('Task List') === null) {
 
   };
 
+  // function to delete a task with delete button
   const deleteTask = (deleteId) => {
     let checkBoxId= deleteId.parentElement.firstElementChild.getAttribute('id');
     taskList.splice(checkBoxId-1, 1);
@@ -68,6 +73,7 @@ if (localStorage.getItem('Task List') === null) {
     displayTasks();
   };
 
+  // Editing task and updating local storage
   const updateTask= (updateId, event) =>{
     event.preventDefault();
     let id= updateId.firstElementChild.getAttribute('id');
@@ -77,7 +83,8 @@ if (localStorage.getItem('Task List') === null) {
     displayTasks();
   };
 
-  export const addTask = (taskDescription) => {
+// Adding task to array and updating local storage
+    const addTask = (taskDescription) => {
     if (taskDescription === '' ) {
       alert('Fields cannot be empty');
     } else {
@@ -93,7 +100,7 @@ if (localStorage.getItem('Task List') === null) {
     }
   };
   
-
+// function for getting value of input and passing to addTask
 const inputSubmit= (ab, event) => {
 event.preventDefault();
     const taskValue = document.querySelector('.input-task');
@@ -108,7 +115,6 @@ event.preventDefault();
   }
  
   //To delete everything from todo list
-//   const refreshIcon = document.querySelector('.refreshIcon');
   export const refreshList=  () => {
     taskList= [];
     updateLocalStorage();
@@ -116,8 +122,7 @@ event.preventDefault();
   };
 
   //To clear completed tasks
-  const clearBtn = document.querySelector('.clearBtn');
-  clearBtn.addEventListener('click', (e) => {
+    export const clearButton = () =>{
     for (let i = taskList.length-1; i >=0; i -= 1) {
         if (taskList[i].completed)
         {
@@ -129,8 +134,9 @@ event.preventDefault();
         }
     updateLocalStorage();
     displayTasks();
-} );
+} ;
 
+//for onClick functions
 window.deleteTask =deleteTask;
 window.taskED= taskED;
 window.checkBox = checkBox;
