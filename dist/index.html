@@ -12,10 +12,11 @@
         <h3 class="title">Today's To Do</h3>
         <i class="fa fa-refresh refreshIcon pointer"></i>
     </div>
-    <div class="input-cont">
+    <form class="input-cont" type="submit" onsubmit="abc(this, event)">
         <input type="text" class="input-task" placeholder="Add to your list...">
-        <i class="fa fa-level-down fa-rotate-90 enterIcon pointer"></i>
-    </div>
+        <button type="submit" id="inputButton" class="pointer"><i class="fa fa-level-down fa-rotate-90 enterIcon pointer"></i></button>
+    </form>
+    <!-- Tasks are added here dynamically -->
     <div class="tasks-cont">
     </div>
     <div class="clear-btn">

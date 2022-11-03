@@ -54,3 +54,26 @@ h3 {
   width: 41.6vw;
   height: 6.3vh;
 }
+
+.delete{
+  display: none;
+}
+
+.taska {
+  border: 0;
+  height: 4vh;
+  width: 35vw;
+  
+}
+
+.taska:focus {
+  outline: none;
+}
+
+.delete {
+  margin-left: auto;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
