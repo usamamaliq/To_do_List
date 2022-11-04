@@ -1,4 +1,6 @@
-import { updateLocalStorage, displayTasks, taskList } from './addRemoveEdit.js';
+import {
+  updateLocalStorage, displayTasks, taskList, arrayUpdate,
+} from './addRemoveEdit.js';
 
 // function to make use of checkbox
 const checkBox = (checkBoxID) => {
@@ -16,14 +18,11 @@ const checkBox = (checkBoxID) => {
 
 // To clear completed tasks
 const clearButton = () => {
-  for (let i = taskList.length - 1; i >= 0; i -= 1) {
-    if (taskList[i].completed) {
-      taskList.splice(i, 1);
-    }
+  const newList = taskList.filter((word) => !word.completed);
+  for (let b = 0; b < newList.length; b += 1) {
+    newList[b].index = b + 1;
   }
-  for (let b = 0; b < taskList.length; b += 1) {
-    taskList[b].index = b + 1;
-  }
+  arrayUpdate(newList);
   updateLocalStorage();
   displayTasks();
 };

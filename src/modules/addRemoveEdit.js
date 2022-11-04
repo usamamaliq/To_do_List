@@ -33,6 +33,11 @@ export const displayTasks = () => {
   }
 };
 
+// Function to update array after filering
+export const arrayUpdate = (newList) => {
+  taskList = newList;
+};
+
 // function to edit task and display delete button
 const taskED = (EDId) => {
   EDId.style.display = 'none';
