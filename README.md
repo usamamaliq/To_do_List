@@ -4,6 +4,10 @@
 
 > This is a to do list project using webpack. In this project along with CRUD methods (CRUD (create, read, update, delete) checkbox and clear completed tasks were implemented and lists were created dynamically with JavaScript.
 
+# Live Demo
+
+[Click to view Project](https://usamamaliq.github.io/To_do_List/dist)
+
 ## Built With
 
 - HTML, CSS & JS, Webpack
