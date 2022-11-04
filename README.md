@@ -2,7 +2,7 @@
 
 # To Do List
 
-> This is a to do list project using webpack. In this part of the project CRUD methods (CRUD (create, read, update, delete) were implemented and lists were created dynamically with JavaScript.
+> This is a to do list project using webpack. In this project along with CRUD methods (CRUD (create, read, update, delete) checkbox and clear completed tasks were implemented and lists were created dynamically with JavaScript.
 
 ## Built With
 

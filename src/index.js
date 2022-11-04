@@ -1,5 +1,6 @@
 import './style.css';
-import { displayTasks, refreshList, clearButton } from './modules/addRemoveEdit.js';
+import { displayTasks, refreshList } from './modules/addRemoveEdit.js';
+import { clearButton } from './modules/interactive.js';
 
 window.onload = displayTasks();
 const refreshIcon = document.querySelector('.refreshIcon');
