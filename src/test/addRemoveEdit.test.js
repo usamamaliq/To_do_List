@@ -28,19 +28,17 @@ describe('Adding task to Array', () => {
 });
 
 describe('Removing tasks from array', () => {
-    test('Test to remove task with index 1', () => {
-      const id = 1;
-      splice(id);
-      expect(taskList.length).toBe(2);
-      expect(taskList[0].description).toBe("2nd Task");
-      expect(taskList[0].index).toBe(1);
-    });
-
-    test('Test to remove task with index 2', () => {
-        const id = 2;
-        splice(id);
-        expect(taskList.length).toBe(1);
-      });
-
+  test('Test to remove task with index 1', () => {
+    const id = 1;
+    splice(id);
+    expect(taskList.length).toBe(2);
+    expect(taskList[0].description).toBe('2nd Task');
+    expect(taskList[0].index).toBe(1);
   });
-  
+
+  test('Test to remove task with index 2', () => {
+    const id = 2;
+    splice(id);
+    expect(taskList.length).toBe(1);
+  });
+});
