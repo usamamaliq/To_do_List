@@ -1,44 +1,70 @@
-import { addTaskToArray, taskList, splice } from '../modules/addRemoveEdit.js';
+import {
+  inputSubmit, splice,
+} from '../modules/addRemoveEdit.js';
 
-describe('Adding task to Array', () => {
-  test('Test for add function', () => {
-    const task = 'good';
-    addTaskToArray(task);
-    expect(taskList.length).toBe(1);
-    expect(taskList[0].description).toBe(task);
-    expect(taskList[0].completed).toBe(false);
-    expect(taskList[0].index).toBe(1);
-  });
-  test('Test for add function', () => {
-    const task = '2nd Task';
-    addTaskToArray(task);
-    expect(taskList.length).toBe(2);
-    expect(taskList[1].description).toBe(task);
-    expect(taskList[1].completed).toBe(false);
-    expect(taskList[1].index).toBe(2);
-  });
-  test('Test for add function', () => {
-    const task = '3nd Task';
-    addTaskToArray(task);
-    expect(taskList.length).toBe(3);
-    expect(taskList[2].description).toBe(task);
-    expect(taskList[2].completed).toBe(false);
-    expect(taskList[2].index).toBe(3);
-  });
-});
+// expected value of local storage
+const todos = [
+  {
+    description: 'first todo',
+    completed: false,
+    index: 1,
+  },
+  {
+    description: '2nd todo',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: '3rd todo',
+    completed: false,
+    index: 3,
+  },
+  {
+    description: '4th todo',
+    completed: false,
+    index: 4,
+  },
+  {
+    description: '5th todo',
+    completed: false,
+    index: 5,
+  },
+];
 
-describe('Removing tasks from array', () => {
-  test('Test to remove task with index 1', () => {
-    const id = 1;
-    splice(id);
-    expect(taskList.length).toBe(2);
-    expect(taskList[0].description).toBe('2nd Task');
-    expect(taskList[0].index).toBe(1);
+describe('add and remove items from todo list', () => {
+  test('adding tasks to local storage', () => {
+    // mock the DOM content
+    todos.map((item) => {
+      document.body.innerHTML = `
+      <form class="input-cont" onsubmit="inputSubmit(this, event)">
+      <input required value="${item.description}" type="text" class="input-task" placeholder="Add to your list...">
+      <button type="submit" id="inputButton" class="pointer"><i class="fa fa-level-down fa-rotate-90 enterIcon pointer"></i></button>
+        </form>
+        <div class="tasks-cont">
+        </div>
+        `;
+      inputSubmit();
+      return 0;
+    });
+    // Checking local storage to be equal to todos
+    expect(JSON.parse(localStorage.getItem('Task List'))).toEqual(todos);
+    // Checking DOM content to have 5 tasks
+    expect(document.querySelector('.tasks-cont').children).toHaveLength(5);
   });
 
-  test('Test to remove task with index 2', () => {
-    const id = 2;
-    splice(id);
-    expect(taskList.length).toBe(1);
+  test('remove item 1 of task list', () => {
+    splice(1);
+    const taskList = JSON.parse(localStorage.getItem('Task List'));
+    expect(taskList.length).toEqual(4);
+    expect(taskList[0].index).toEqual(1);
+    expect(document.querySelector('.tasks-cont').children).toHaveLength(4);
+  });
+
+  test('remove item 3 of task list', () => {
+    splice(3);
+    const taskList = JSON.parse(localStorage.getItem('Task List'));
+    expect(taskList.length).toEqual(3);
+    expect(taskList[2].index).toEqual(3);
+    expect(document.querySelector('.tasks-cont').children).toHaveLength(3);
   });
 });
