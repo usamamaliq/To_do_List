@@ -75,14 +75,18 @@ const clearInput = () => {
   taskValue.value = '';
 };
 
-// Adding task to array and updating local storage
-const addTask = (taskDescription) => {
+export const addTaskToArray = (taskDescription) => {
   const tasks = {
     description: taskDescription,
     completed: false,
     index: (taskList.length) + 1,
   };
   taskList.push(tasks);
+};
+
+// Adding task to array and updating local storage
+export const addTask = (taskDescription) => {
+  addTaskToArray(taskDescription);
   updateLocalStorage();
   displayTasks();
   clearInput();
