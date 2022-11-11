@@ -48,13 +48,17 @@ const taskED = (EDId) => {
   taskField.style.outline = '1px solid black';
 };
 
-// function to delete a task with delete button
-const deleteTask = (deleteId) => {
-  const checkBoxId = deleteId.parentElement.firstElementChild.getAttribute('id');
+export const splice = (checkBoxId) => {
   taskList.splice(checkBoxId - 1, 1);
   for (let i = checkBoxId - 1; i < taskList.length; i += 1) {
     taskList[i].index -= 1;
   }
+};
+
+// function to delete a task with delete button
+const deleteTask = (deleteId) => {
+  const checkBoxId = deleteId.parentElement.firstElementChild.getAttribute('id');
+  splice(checkBoxId);
   updateLocalStorage();
   displayTasks();
 };

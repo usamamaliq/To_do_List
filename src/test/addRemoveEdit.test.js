@@ -1,6 +1,6 @@
-import { addTaskToArray, taskList } from '../modules/addRemoveEdit.js';
+import { addTaskToArray, taskList, splice } from '../modules/addRemoveEdit.js';
 
-describe('Adding task to localStorage', () => {
+describe('Adding task to Array', () => {
   test('Test for add function', () => {
     const task = 'good';
     addTaskToArray(task);
@@ -26,3 +26,21 @@ describe('Adding task to localStorage', () => {
     expect(taskList[2].index).toBe(3);
   });
 });
+
+describe('Removing tasks from array', () => {
+    test('Test to remove task with index 1', () => {
+      const id = 1;
+      splice(id);
+      expect(taskList.length).toBe(2);
+      expect(taskList[0].description).toBe("2nd Task");
+      expect(taskList[0].index).toBe(1);
+    });
+
+    test('Test to remove task with index 2', () => {
+        const id = 2;
+        splice(id);
+        expect(taskList.length).toBe(1);
+      });
+
+  });
+  
