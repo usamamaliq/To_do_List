@@ -48,15 +48,19 @@ const taskED = (EDId) => {
   taskField.style.outline = '1px solid black';
 };
 
-// function to delete a task with delete button
-const deleteTask = (deleteId) => {
-  const checkBoxId = deleteId.parentElement.firstElementChild.getAttribute('id');
+export const splice = (checkBoxId) => {
   taskList.splice(checkBoxId - 1, 1);
   for (let i = checkBoxId - 1; i < taskList.length; i += 1) {
     taskList[i].index -= 1;
   }
   updateLocalStorage();
   displayTasks();
+};
+
+// function to delete a task with delete button
+export const deleteTask = (deleteId) => {
+  const checkBoxId = deleteId.parentElement.firstElementChild.getAttribute('id');
+  splice(checkBoxId);
 };
 
 // Editing task and updating local storage
@@ -75,22 +79,27 @@ const clearInput = () => {
   taskValue.value = '';
 };
 
-// Adding task to array and updating local storage
-const addTask = (taskDescription) => {
+export const addTaskToArray = (taskDescription) => {
   const tasks = {
     description: taskDescription,
     completed: false,
     index: (taskList.length) + 1,
   };
   taskList.push(tasks);
+};
+
+// Adding task to array and updating local storage
+export const addTask = (taskDescription) => {
+  addTaskToArray(taskDescription);
   updateLocalStorage();
   displayTasks();
   clearInput();
 };
 
 // function for getting value of input and passing to addTask
-const inputSubmit = (ab, event) => {
-  event.preventDefault();
+// eslint-disable-next-line
+export const inputSubmit = (ab, event) => {
+  // event.preventDefault();
   const taskValue = document.querySelector('.input-task');
   addTask(taskValue.value);
 };
