@@ -1,5 +1,5 @@
 import {
-  inputSubmit, splice, editTaskValue
+  inputSubmit, splice, editTaskValue,
 } from '../modules/addRemoveEdit.js';
 
 // expected value of local storage
@@ -68,15 +68,12 @@ describe('add and remove items from todo list', () => {
     expect(document.querySelector('.tasks-cont').children).toHaveLength(3);
   });
 
-  //test for editing a task
+  // test for editing a task
 
   test('to edit a task', () => {
     editTaskValue(1, 'edited description');
     const taskList = JSON.parse(localStorage.getItem('Task List'));
     expect(taskList[0].description).toEqual('edited description');
-   // expect(document.querySelector('.tasks-cont').children).toHaveLength(3);
+    // expect(document.querySelector('.tasks-cont').children).toHaveLength(3);
   });
-
-  
 });
-

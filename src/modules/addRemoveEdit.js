@@ -63,14 +63,15 @@ export const deleteTask = (deleteId) => {
   splice(checkBoxId);
 };
 
-export const editTaskValue =(id, taskValue) => {
+export const editTaskValue = (id, taskValue) => {
   taskList[id - 1].description = taskValue;
   updateLocalStorage();
   displayTasks();
 };
 // Editing task and updating local storage
+// eslint-disable-next-line
 const updateTask = (updateId, event) => {
-  //event.preventDefault();
+
   const id = updateId.firstElementChild.getAttribute('id');
   const taskValue = updateId.firstElementChild.nextElementSibling;
   editTaskValue(id, taskValue.value);
@@ -102,7 +103,6 @@ export const addTask = (taskDescription) => {
 // function for getting value of input and passing to addTask
 // eslint-disable-next-line
 export const inputSubmit = (ab, event) => {
-  // event.preventDefault();
   const taskValue = document.querySelector('.input-task');
   addTask(taskValue.value);
 };
