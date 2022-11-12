@@ -74,6 +74,5 @@ describe('add and remove items from todo list', () => {
     editTaskValue(1, 'edited description');
     const taskList = JSON.parse(localStorage.getItem('Task List'));
     expect(taskList[0].description).toEqual('edited description');
-    // expect(document.querySelector('.tasks-cont').children).toHaveLength(3);
   });
 });
