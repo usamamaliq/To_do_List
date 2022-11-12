@@ -63,14 +63,17 @@ export const deleteTask = (deleteId) => {
   splice(checkBoxId);
 };
 
-// Editing task and updating local storage
-const updateTask = (updateId, event) => {
-  event.preventDefault();
-  const id = updateId.firstElementChild.getAttribute('id');
-  const taskValue = updateId.firstElementChild.nextElementSibling;
-  taskList[id - 1].description = taskValue.value;
+export const editTaskValue =(id, taskValue) => {
+  taskList[id - 1].description = taskValue;
   updateLocalStorage();
   displayTasks();
+};
+// Editing task and updating local storage
+const updateTask = (updateId, event) => {
+  //event.preventDefault();
+  const id = updateId.firstElementChild.getAttribute('id');
+  const taskValue = updateId.firstElementChild.nextElementSibling;
+  editTaskValue(id, taskValue.value);
 };
 
 // To clear input values
